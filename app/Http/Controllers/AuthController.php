@@ -19,7 +19,7 @@ class AuthController extends Controller
      */
     public function register(UserStoreRequest $request)
     {
-        $data = $request->only(['name', 'email', 'phone', 'password', 'password_confirmation']);
+        $data = $request->only(['phone', 'email', 'name', 'password', 'password_confirmation']);
         unset($data['type']);
         $data['type'] = 'student';
         $user = (new CreateNewUser())->create($data);
